@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)http://192.168.35.49/BAY.KMA.Wealth1/Main.Service/resource/KSEAssetOverviewGraph.aspx?token=True|50|30|20|0|0|0|0 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript">
+    function Graph() {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        var myParam = urlParams.get("token")
+
+        var obj = {}
+        obj = myParam.split('|')
+        var liferatio = parseInt(obj[0])
+        var nonliferatio = parseInt(obj[1])
+        var unitlinkratio =parseInt(obj[2])
+;
+        var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
+        var colors = ["#7D16F4","#9379F7","#E0BBFE"]
+           Highcharts.chart('container', {
+               chart: {
+                   renderTo: 'container1',
+                   type: 'pie',
+                   backgroundColor: '#FFFFFF',
+                   margin: -8
+               },
+               credits: {
+                   enabled: false
+               },
+               title: {
+                   text: '',
+                   y: 5,
+                   verticalAlign: 'bottom'
+               },
+               tooltip: {
+                   enabled: false
+               },
+               plotOptions: {
+                   pie: {
+                       borderColor: '',
+                       innerSize: '80%',// ขนาดวงกลมสีดำ
+                       dataLabels: {
+                           enabled: false
+                       }, animation: { duration: 0 }
+                   }
+               },
+
+               colors: colors,
+               series: [{
+                   type: 'pie',
+                   name: 'Asset Allocation',
+                   innerSize: '80%',
+                   data: data
+                   ,
+                   enableMouseTracking: false
+               }]
+           },
+           function (chart1) { // on complete
+               var xpos = '30%';
+               var ypos = '30%';
+               var circleradius = 30;
+
+               // Render the circle
+               chart1.renderer.circle(xpos, ypos, circleradius).attr({
+                   fill: '#FFFFFF', // สี background
+               }).add();
+           });
+
+    }
+</script>
+<title>
+    
+
+</title></head>
+<body bgcolor="#FFFFFF" style="">
+    <form name="form1" method="post" action="http://192.168.35.49/BAY.KMA.Wealth1/Main.Service/resource/KSEAssetOverviewGraph.aspx?token=True%7c50%7c30%7c20%7c0%7c0%7c0%7c0" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3MTA0NTQ4NTVkZHHUYGOu4Uwuyx/M3YUKBe2GhDEyU9ecPtELq5q5/XNx">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="28479024">
+</div>
+        <div id="container" style="width: 38px; height: 38px;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 38px; height: 38px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="38" height="38"><desc>Created with Highcharts 4.2.5</desc><defs><clippath id="highcharts-1"><rect x="0" y="0" width="54" height="54"></rect></clippath></defs><rect x="0" y="0" width="38" height="38" fill="#FFFFFF" class=" highcharts-background"></rect><circle cx="30%" cy="30%" r="30" fill="#FFFFFF"></circle><g class="highcharts-series-group"><g class="highcharts-series highcharts-series-0" transform="translate(-8,-8) scale(1 1)"><path fill="#A2F3B6" d="M 26.99653755553718 10.000000352603582 A 17 17 0 1 1 27.013537554082465 43.99999460984119 L 27.010830043265972 40.59999568787295 A 13.6 13.6 0 1 0 26.997230044429745 13.400000282082866 Z" stroke="#A2F3B6" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#00E7AC" d="M 26.99653755553718 43.99999964739642 A 17 17 0 0 1 10.828093746421665 21.75886957560929 L 14.062474997137333 22.80709566048743 A 13.6 13.6 0 0 0 26.997230044429745 40.599999717917136 Z" stroke="#00E7AC" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#007C6E" d="M 10.833342961924988 21.74270029261602 A 17 17 0 0 1 26.97638734105278 10.000016398762689 L 26.981109872842225 13.400013119010152 A 13.6 13.6 0 0 0 14.06667436953999 22.794160234092818 Z" stroke="#007C6E" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#0F61A1" d="M 26.993387333627023 10.000001286098772 A 17 17 0 0 1 26.97638734105278 10.000016398762689 L 26.981109872842225 13.400013119010152 A 13.6 13.6 0 0 0 26.99470986690162 13.400001028879016 Z" stroke="#0F61A1" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#00C2B9" d="M 26.993387333627023 10.000001286098772 A 17 17 0 0 1 26.97638734105278 10.000016398762689 L 26.981109872842225 13.400013119010152 A 13.6 13.6 0 0 0 26.99470986690162 13.400001028879016 Z" stroke="#00C2B9" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#3491DA" d="M 26.993387333627023 10.000001286098772 A 17 17 0 0 1 26.97638734105278 10.000016398762689 L 26.981109872842225 13.400013119010152 A 13.6 13.6 0 0 0 26.99470986690162 13.400001028879016 Z" stroke="#3491DA" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers highcharts-series-0" transform="translate(-8,-8) scale(1 1)"></g></g><g class="highcharts-legend"><g><g></g></g></g></svg></div></div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Graph()//]]>
+
+</script>
+</form>
+
+
+</body></html>
