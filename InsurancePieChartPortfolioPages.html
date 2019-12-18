@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head><title>
+
+</title>
+    <style type="text/css">
+        @font-face {
+            font-family: KrungsriSimple;
+            src: url('fonts/krungsri_con_med-webfont.eot');
+            src: local('☺'), 
+                 url('fonts/krungsri_con_med-webfont.eot?#iefix') format('embedded-opentype'), 
+                 url('fonts/krungsri_con_med-webfont.woff') format('woff'), 
+                 url('fonts/krungsri_con_med-webfont.ttf') format('truetype'), 
+                 url('fonts/krungsri_con_med-webfont.svg') format('svg');
+            font-weight: bold;
+            font-style: normal;
+        }
+    </style>
+    <script
+        src="https://code.jquery.com/jquery-1.10.2.min.js"
+        integrity="sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+        crossorigin="anonymous"></script>
+	<script
+        src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"
+        integrity="sha256-lnH4vnCtlKU2LmD0ZW1dU7ohTTKrcKP50WA9fa350cE="
+        crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript"></script>
+</head>
+<body bgcolor="#221D1D">
+
+
+<script type="text/javascript"> 
+
+    function Graph()
+    {   
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        var myParam = urlParams.get("token")
+
+        var obj = {}
+        obj = myParam.split('|')
+        var liferatio = parseInt(obj[0])
+        var nonliferatio = parseInt(obj[1])
+        var unitlinkratio =parseInt(obj[2])
+;
+        var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
+        var colors = ["#7D16F4","#9379F7","#E0BBFE"]
+        
+    var text = "Insurances\u003cbr\u003eAllocation"
+                       Highcharts.chart('container', {
+                           chart: {
+                               plotBackgroundColor: null,
+                               plotBorderWidth: 0,
+                               plotShadow: false,
+                               backgroundColor: '#221D1D',
+                               margin: -8,
+							   fontFamily: 'KrungsriSimple',
+                           },
+                           title: {
+                               text: text,
+                               align: 'center',
+                               verticalAlign: 'middle',
+                               y: 0,
+                               style: {
+                                   color: '#C4C4C4',
+                                   font: '13pt KrungsriSimple'
+                               }
+                           },
+                           tooltip: {
+                               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                           },
+                           plotOptions: {
+                               pie: {
+                                   dataLabels: {
+                                       enabled: false,
+                                       distance: -50,
+                                       style: {
+                                           fontWeight: 'bold',
+                                           color: 'white',
+										   fontFamily: 'KrungsriSimple',
+                                       }
+                                   },
+                                   startAngle: 0,
+                                   endAngle: 360,
+                                   borderColor:null,
+								   fontFamily: 'KrungsriSimple',
+                                   animation: { duration: 0 }
+
+                               }
+                           },
+                           colors: colors,
+                           series: [{
+                               type: 'pie',
+                               name: 'Asset Allocation',
+                               innerSize: '60%',
+                               data: data,
+                               enableMouseTracking: false
+                           }]
+                       });
+        
+    }
+</script>
+
+    <form name="form1" method="post" action="./KSEAssetMainGraph.aspx?token=True%7c4999500%7c0%7c0%7c0%7c0%7c0" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNDI5NDcxNTY4ZGQt33dQmHSJN/avnI8roXP1sKGPafv/7d5rgHBxLFflJQ==" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="29615E79" />
+</div>
+        <div id="container" style="margin: 0px; height: 200px;"></div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Graph()//]]>
+</script>
+</form>
+</body>
+</html>
