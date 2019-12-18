@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script
+        src="https://code.jquery.com/jquery-1.10.2.min.js"
+        integrity="sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+        crossorigin="anonymous"></script>
+	<script
+        src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"
+        integrity="sha256-lnH4vnCtlKU2LmD0ZW1dU7ohTTKrcKP50WA9fa350cE="
+        crossorigin="anonymous"></script>
+    <script src="javascript/highcharts.js"></script><script type="text/javascript">
+    function Graph() {
+       
+        var data = [[null,4999500],[null,900000],[null,0],[null,0],[null,0],[null,0]]
+        var colors = ["#A2F3B6","#4E4E4E","#4E4E4E","#4E4E4E","#4E4E4E"]
+        var textcolor = "#A2F3B6"
+        var index = 0
+               Highcharts.chart('container', {
+                   chart: {
+                       renderTo: 'container1',
+                       type: 'pie',
+                       backgroundColor: '#221D1D',
+                       margin: -8
+                   },
+                   credits: {
+                       enabled: false
+                   },
+                   title: {
+                       text: '',
+                       y: 5,
+                       verticalAlign: 'bottom'
+                   },
+                   tooltip: {
+                       enabled: false
+                   },
+                   plotOptions: {
+                       pie: {
+                           borderColor: '',
+                           innerSize: '80%',// ขนาดวงกลมสีดำ
+                           dataLabels: {
+                               enabled: false
+                           }, animation: { duration: 0 }
+                       }
+                   },
+
+                   colors: colors,
+                   series: [{
+                       type: 'pie',
+                       name: 'Insurances Allocation',
+                       innerSize: '80%',
+                       data: data
+                       ,
+                       enableMouseTracking: false
+                   }]
+               },
+               function (chart1) { // on complete
+                   var xpos = '30%';
+                   var ypos = '30%';
+                   var circleradius = 30;
+
+                   // Render the circle
+                   chart1.renderer.circle(xpos, ypos, circleradius).attr({
+                       fill: '#221D1D', // สี background
+                   }).add();
+
+                   // Render the text 
+                   var p = chart1.series[0].data[index].percentage.toFixed(0);		
+                   chart1.renderer.text( p+'%', 10, 23).css({
+                       // width: '50%',
+                       color: textcolor, // สี Text %
+                       fontSize: '9px',
+                       textAlign: 'center'
+                   }).attr({
+                       // why doesn't zIndex get the text in front of the chart?
+                       //zIndex: 999
+                   }).add();
+               });
+
+    }
+</script>
+<head><title>
+
+</title></head>
+<body bgcolor="#221D1D">
+    <form name="form1" method="post" action="./KSEAssetSubGraph.aspx?token=True%7c4999500%7c0%7c0%7c0%7c0%7c0%7c1" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTU4MDM3NDQ4M2RkvYavuGqIGLGpfy+zz/Cz0sBYShua0fWvPEQvK5TNKKg=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E6E87BD9" />
+</div>
+        <div id="container" style="width: 38px; height: 38px;"></div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Graph()//]]>
+</script>
+</form>
+</body>
+</html>
