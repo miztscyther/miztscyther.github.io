@@ -14,9 +14,30 @@
     <script src="javascript/highcharts.js"></script><script type="text/javascript">
     function Graph() {
        
-        var data = [[null,4999500],[null,900000],[null,0],[null,0],[null,0],[null,0]]
-        var colors = ["#A2F3B6","#4E4E4E","#4E4E4E","#4E4E4E","#4E4E4E"]
-        var textcolor = "#A2F3B6"
+        const urlParams = new URLSearchParams(window.location.search);
+        var myParam = urlParams.get("token")
+
+        var obj = {}
+        obj = myParam.split('|')
+        var insuranceCategory = obj[0]
+        var liferatio = parseInt(obj[1])
+        var nonliferatio = parseInt(obj[2])
+        var unitlinkratio =parseInt(obj[3])
+;
+        if(insuranceCategory == 'life'){
+            var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
+            var colors = ["#7D16F4","#4E4E4E","#4E4E4E"]
+            var textcolor = "#7D16F4"
+        }else if(insuranceCategory == 'nonlife'){
+            var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
+            var colors = ["#4E4E4E","#4E4E4E","#9379F7","#4E4E4E"]
+            var textcolor = "#9379F7"
+        }else{
+            var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
+            var colors = ["#4E4E4E","#4E4E4E","#E0BBFE"]
+            var textcolor = "#E0BBFE"
+        }
+        
         var index = 0
                Highcharts.chart('container', {
                    chart: {
