@@ -88,9 +88,9 @@
                    }).add();
 
                    // Render the text
-                   if(insuranceCategory == 'Life'){
-                        var p = chart1.series[0].data[index].percentage.toFixed(0);	
-                        chart1.renderer.text( p+'%', 10, 23).css({
+                    
+                   var p = chart1.series[0].data[index].percentage.toFixed(0);		
+                   chart1.renderer.text( p+'%', 10, 23).css({
                        // width: '50%',
                        color: textcolor, // สี Text %
                        fontSize: '9px',
@@ -99,33 +99,6 @@
                        // why doesn't zIndex get the text in front of the chart?
                        //zIndex: 999
                    }).add();
-                        	
-                   }else if(insuranceCategory == 'NonLife'){
-                        var p = chart1.series[1].data[index].percentage.toFixed(0);
-                        chart1.renderer.text( p+'%', 10, 23).css({
-                       // width: '50%',
-                       color: textcolor, // สี Text %
-                       fontSize: '9px',
-                       textAlign: 'center'
-                   }).attr({
-                       // why doesn't zIndex get the text in front of the chart?
-                       //zIndex: 999
-                   }).add();	
-                        	
-                   }else{
-                        var p = chart1.series[2].data[index].percentage.toFixed(0);	
-                        chart1.renderer.text( p+'%', 10, 23).css({
-                       // width: '50%',
-                       color: textcolor, // สี Text %
-                       fontSize: '9px',
-                       textAlign: 'center'
-                   }).attr({
-                       // why doesn't zIndex get the text in front of the chart?
-                       //zIndex: 999
-                   }).add();	
-                   } 
-	
-                   
                });
 
     }
