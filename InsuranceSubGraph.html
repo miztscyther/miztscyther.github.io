@@ -89,11 +89,11 @@
 
                    // Render the text 
                    if(insuranceCategory == 'Life'){
-                    var p = chart1.series[0].data[1].percentage.toFixed(0);	
+                    var p = chart1.series[0].data[0].percentage.toFixed(0);	
                    }else if(insuranceCategory =='NonLife'){
-                    var p = chart1.series[0].data[2].percentage.toFixed(0);	
+                    var p = chart1.series[0].data[1].percentage.toFixed(0);	
                    }else{
-                    var p = chart1.series[0].data[3].percentage.toFixed(0);	
+                    var p = chart1.series[0].data[2].percentage.toFixed(0);	
                    }	
                    chart1.renderer.text( p+'%', 10, 23).css({
                        // width: '50%',
