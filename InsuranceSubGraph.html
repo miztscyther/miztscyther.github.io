@@ -28,7 +28,7 @@
             var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
             var colors = ["#7D16F4","#4E4E4E","#4E4E4E"]
             var textcolor = "#7D16F4"
-        }else if(insuranceCategory == 'Non-Life'){
+        }else if(insuranceCategory == 'NonLife'){
             var data = [[null,liferatio],[null,nonliferatio],[null,unitlinkratio]]
             var colors = ["#4E4E4E","#9379F7","#4E4E4E"]
             var textcolor = "#9379F7"
@@ -90,7 +90,7 @@
                    // Render the text 
                    if(insuranceCategory == 'Life'){
                     var p = chart1.series[0].data[0].percentage.toFixed(0);	
-                   }else if(insuranceCategory =='Non-Life'){
+                   }else if(insuranceCategory =='NonLife'){
                     var p = chart1.series[0].data[1].percentage.toFixed(0);	
                    }else{
                     var p = chart1.series[0].data[2].percentage.toFixed(0);	
